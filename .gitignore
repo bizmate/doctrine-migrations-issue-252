@@ -1,0 +1,5 @@
+/vendor
+/vm/.vagrant
+/log
+/bin
+/nbproject

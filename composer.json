@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "description": "Test Legacy Website",
+  "keywords": ["distribution","configuration"],
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Diego Gullo",
+      "email": "diego_gullo@bizmate.biz"
+    }
+  ],
+  "require": {
+    "snakano/cache-store": "1.*",
+    "symfony/console": "2.6.*",
+    "doctrine/migrations": "1.0-ALPHA1",
+    "symfony/yaml": "~2.6",
+    "twig/twig":"~1.0",
+    "monolog/monolog": "~1.13"
+  }
+}

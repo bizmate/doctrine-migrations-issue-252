@@ -1,0 +1,37 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+vagrant_version     = '2'
+
+Vagrant.configure(vagrant_version) do |config|
+
+  mode = ENV["TL_VAGRANT_MODE"] || 'dev'
+
+  config.vm.provider :virtualbox do |virtualbox, override|
+    virtualbox.gui    = false
+    virtualbox.memory = 8192
+    virtualbox.cpus   = 2
+
+    override.vm.box           = 'centos64'
+    override.vm.box_url       = 'http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box'
+    override.vm.boot_timeout  = 0
+
+    override.vm.network "forwarded_port", guest: 3306, host: 3306
+
+    override.vm.synced_folder "..", "/var/www", create: true
+  end
+
+
+  config.ssh.pty = true
+
+  config.vm.provision :shell, :path => "scripts/install-puppet.sh"
+  config.vm.provision :shell, :path => "scripts/install-puppet-modules.sh"
+  
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "puppet/manifests"
+    puppet.module_path    = "puppet/modules"
+    puppet.manifest_file  = "default.pp"
+    puppet.facter         = { 'mode' => mode}
+  end
+
+end
