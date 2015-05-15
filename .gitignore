@@ -1,5 +1,5 @@
 /vendor
 /vm/.vagrant
 /log
-/bin
+/bin/codeception.phar
 /nbproject
