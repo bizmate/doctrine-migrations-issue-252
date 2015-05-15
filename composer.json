@@ -13,7 +13,7 @@
   "require": {
     "snakano/cache-store": "1.*",
     "symfony/console": "2.6.*",
-    "doctrine/migrations": "1.0-ALPHA1",
+    "doctrine/migrations": "1.0.*@dev",
     "symfony/yaml": "~2.6",
     "twig/twig":"~1.0",
     "monolog/monolog": "~1.13"

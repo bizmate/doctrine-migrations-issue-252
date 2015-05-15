@@ -24,8 +24,8 @@ $dbParams = require(__DIR__.'/../migrations-db.php');
 chdir(__DIR__ . '/..');
 
 // Instantiate console application
-//$cli = new Console\Application('Doctrine Migrations', MigrationsVersion::VERSION());
-$cli = new Console\Application('Doctrine Migrations', MigrationsVersion::VERSION);
+$cli = new Console\Application('Doctrine Migrations', MigrationsVersion::VERSION());
+//$cli = new Console\Application('Doctrine Migrations', MigrationsVersion::VERSION);
 $cli->setCatchExceptions(true);
 
 $db = \Doctrine\DBAL\DriverManager::getConnection($dbParams);
